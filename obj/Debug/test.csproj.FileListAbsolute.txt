@@ -1,0 +1,1 @@
+c:\temp\avtest\test\bin\Debug\test.exe.config
