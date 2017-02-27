@@ -1,4 +1,22 @@
 version: 1.0.{build}
+branches:
+  only:
+  - master
+environment:
+  test:
+    secure: JN7p5N8FG1QEYikdl5311A==
 build:
   project: test.sln
   verbosity: minimal
+artifacts:
+- path: Program.cs
+  name: Program.cs
+deploy:
+- provider: AzureBlob
+  storage_account_name: slavtest
+  storage_access_key:
+    secure: wUR7C1or+zwoaZwFB4ThFtoBLddO/jqE2UAWfm6LOyHPekkgOMtWgi9/95PgRV84Vg8vtmjwg32C/OVVCwPiX8Pm5JA5PUG/p1bZc+gkVEJj/dOCiCYPzBL8zOLOOcTM
+  container: foo
+  folder: output
+  on:
+    branch: master
